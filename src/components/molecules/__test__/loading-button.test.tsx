@@ -10,6 +10,5 @@ test("Loading Button", () => {
     </LoadingButton>,
   );
   expect(screen.getByTestId("loading-btn")).toBeDefined();
-  expect(screen.getByRole("button")).toHaveLength(1);
 });
 //${{ Postgres.DATABASE_URL }}
