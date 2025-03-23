@@ -1,11 +1,11 @@
 "use client";
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback } from "react";
 import {
   useDeleteTaskMutation,
   useGetAllTasksQuery,
 } from "@/lib/store/api/taskService";
 import { TaskWithChildren } from "@/lib/types/task";
-import { LayoutList, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import Tree from "@/components/molecules/tree";
 import { Button } from "@/components/atoms/button";
 import TaskFormDialog from "@/components/molecules/task-form-dialog";
@@ -35,7 +35,7 @@ function Tasks() {
 
   const handleEdit = useCallback(() => {
     setEdit(true);
-    setOpenDialog((_) => true);
+    setOpenDialog(() => true);
   }, [setOpenDialog]);
 
   const handleDelete = useCallback(() => {

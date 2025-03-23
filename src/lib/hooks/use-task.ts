@@ -1,9 +1,4 @@
-import {
-  CadenceType,
-  TaskDocType,
-  TaskType,
-  TaskWithChildren,
-} from "@/lib/types/task";
+import { CadenceType, TaskType, TaskWithChildren } from "@/lib/types/task";
 import { useState } from "react";
 import { useUpdateTaskMutation } from "@/lib/store/api/taskService";
 

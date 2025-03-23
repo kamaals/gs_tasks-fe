@@ -12,7 +12,7 @@ export type ActionConfirmProps = {
 function ActionConfirm({ onConfirm, onCancel }: ActionConfirmProps) {
   const [show, setShow] = React.useState<"init" | "show" | "hide">("init");
   // Track whether the component has mounted to prevent initial animation
-  const [mounted, setMounted] = React.useState<boolean>(false);
+  const [_, setMounted] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     setMounted(true);
@@ -35,7 +35,7 @@ function ActionConfirm({ onConfirm, onCancel }: ActionConfirmProps) {
       : show === "hide"
         ? "motion-scale-out-[0] motion-translate-x-out-[-1%] motion-translate-y-out-[50%]"
         : "scale-0 translate-x-0 translate-y-0 motion-paused";
-  }, [show, mounted]);
+  }, [show]);
 
   return (
     <div className="w-full min-h-8 px-2 py-1.5 flex items-center overflow-hidden relative rounded-md">

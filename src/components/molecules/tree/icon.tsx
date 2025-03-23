@@ -5,7 +5,7 @@ export type IconProps<DataItem extends TreeDataItem> = {
   data: DataItem;
   isOpen?: boolean;
   isSelected?: boolean;
-  default?: any;
+  default?: never;
 };
 
 function TreeIcon<DataItem extends TreeDataItem>({
@@ -23,6 +23,7 @@ function TreeIcon<DataItem extends TreeDataItem>({
     Icon = data.icon;
   }
   return Icon ? (
+    // @ts-expect-error: blanc
     <Icon className="h-4 w-4 shrink-0 mr-2 relative z-20" />
   ) : (
     <></>

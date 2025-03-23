@@ -120,7 +120,7 @@ export function useTree<DataType extends TreeDataItem>({
         return walkTreeItems(items.children, targetId);
       }
     },
-    [],
+    [expandAll],
   );
 
   const expandedItemIds = React.useMemo(() => {
@@ -129,7 +129,7 @@ export function useTree<DataType extends TreeDataItem>({
     }
     walkTreeItems(data, initialSelectedItemId);
     return ids;
-  }, [data, expandAll, initialSelectedItemId]);
+  }, [data, initialSelectedItemId, walkTreeItems]);
 
   return {
     selectedItemId,

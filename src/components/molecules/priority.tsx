@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { ToggleGroup, ToggleGroupItem } from "@/components/atoms/toggle-group";
-import { CadenceType, TaskWithChildren } from "@/lib/types/task";
+import { TaskWithChildren } from "@/lib/types/task";
 
 function Priority({
   data,

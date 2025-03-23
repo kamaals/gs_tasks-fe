@@ -40,11 +40,11 @@ function RHFToggleGroup({ name, label, children, type, className }: Props) {
             <FormControl>
               <ToggleGroup
                 type={type}
-                onValueChange={(value: any) => {
+                onValueChange={(value: never) => {
                   onChange({ target: { value } });
                 }}
-                defaultValue={defaultValue as any}
-                value={field.value as any}
+                defaultValue={defaultValue as never}
+                value={field.value as never}
                 className={cn(className, "justify-start")}
               >
                 {children}
