@@ -1,20 +1,31 @@
 "use client";
 import { useState, useCallback } from "react";
-import {
-  useDeleteTaskMutation,
-  useGetAllTasksQuery,
-} from "@/lib/store/api/taskService";
+import { useDeleteTaskMutation } from "@/lib/store/api/taskService";
 import { TaskWithChildren } from "@/lib/types/task";
 import { Plus } from "lucide-react";
 import Tree from "@/components/molecules/tree";
 import { Button } from "@/components/atoms/button";
 import TaskFormDialog from "@/components/molecules/task-form-dialog";
 import TaskActions from "@/components/molecules/task-actions";
+import Tools from "@/components/molecules/tools";
+import useQuery from "@/lib/hooks/use-query";
+import Filter from "@/components/molecules/filter";
+import Order from "@/components/molecules/order";
 
 function Tasks() {
-  const { data: tasks } = useGetAllTasksQuery();
-
   const [handleDeleteTask] = useDeleteTaskMutation();
+
+  const {
+    priorityFilter,
+    doneFilter,
+    setPriorityFilter,
+    setDoneFilter,
+    priorityOrder,
+    handleDoneOrder,
+    doneOrder,
+    handlePriorityOrder,
+    tasks,
+  } = useQuery();
 
   const [edit, setEdit] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState(false);
@@ -47,6 +58,23 @@ function Tasks() {
   return (
     Array.isArray(tasks) && (
       <div>
+        <header className="flex justify-between items-center">
+          <span className="text-lg font-bold">Tasks</span>
+          <Tools>
+            <Order
+              priorityOrder={priorityOrder}
+              handleDoneOrder={handleDoneOrder}
+              doneOrder={doneOrder}
+              handlePriorityOrder={handlePriorityOrder}
+            />
+            <Filter
+              priority={priorityFilter}
+              doneFilter={doneFilter}
+              setDoneFilter={setDoneFilter}
+              handlePriorityFilterChange={setPriorityFilter}
+            />
+          </Tools>
+        </header>
         <TaskFormDialog
           openChange={setOpenDialog}
           open={openDialog}

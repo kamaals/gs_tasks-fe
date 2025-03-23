@@ -35,3 +35,5 @@ export interface ServiceExtraOptions {
 export type GenericMutationType =
   | typeof useCreateTaskMutation
   | typeof useUpdateTaskMutation;
+
+export type OrderType = undefined | "asc" | "desc";

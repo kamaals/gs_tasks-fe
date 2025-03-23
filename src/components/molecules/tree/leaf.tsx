@@ -56,7 +56,7 @@ export const LeafComponent = React.forwardRef(function LeafComponent<
           </span>
           <Priority
             handlePriorityChange={handlePriorityChange}
-            data={data as TaskWithChildren}
+            priority={data.priority as number}
           />
         </div>
         {!_data.parentId && (
@@ -93,7 +93,7 @@ export function TitleLeafComponent<DataItem extends TreeDataItem>({
         </span>
         <Priority
           handlePriorityChange={handlePriorityChange}
-          data={data as TaskWithChildren}
+          priority={data.priority as number}
         />
       </div>
       <RecurseAction
