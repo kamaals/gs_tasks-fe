@@ -9,7 +9,7 @@ export const taskSchema = object({
   parentId: string().optional(),
   done: boolean().optional(),
   cadence: z.enum(["day", "week", "month"]).optional(),
-  priority: number,
+  priority: number.optional(),
   lastGeneratedTime: date().optional(),
   recurTime: date().optional(),
   recurTimes: string().optional(),

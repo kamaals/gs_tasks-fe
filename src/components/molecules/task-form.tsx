@@ -25,6 +25,7 @@ function TaskForm({
 }) {
   const [defaultValues, setDefaultValues] = React.useState<Partial<TaskType>>({
     parentId,
+    priority: "0" as unknown as number,
   });
 
   React.useEffect(() => {
@@ -71,7 +72,7 @@ function TaskForm({
               <span>Low</span>
             </ToggleGroupItem>
             <ToggleGroupItem
-              className={cn("h-6 rounded-r-lg rounded-l-none")}
+              className={cn("h-6 rounded-r-none rounded-l-none")}
               value="1"
               aria-label="Medium"
             >

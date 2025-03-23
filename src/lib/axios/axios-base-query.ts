@@ -12,7 +12,7 @@ const getRequestConfig = (args: string | AxiosRequestConfig) => {
 };
 
 const _axios = axios.create({
-  baseURL: "https://gs-api-stagin.up.railway.app/api/1",
+  baseURL: "http://localhost:3000/api/1",
 });
 
 const axiosBaseQuery = <
