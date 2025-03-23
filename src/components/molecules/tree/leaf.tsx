@@ -55,6 +55,7 @@ export const LeafComponent = React.forwardRef(function LeafComponent<
             {data.title}
           </span>
           <Priority
+            // @ts-expect-error: updated
             handlePriorityChange={handlePriorityChange}
             priority={data.priority as number}
           />
@@ -92,6 +93,7 @@ export function TitleLeafComponent<DataItem extends TreeDataItem>({
           {data.title}
         </span>
         <Priority
+          // @ts-expect-error: updated
           handlePriorityChange={handlePriorityChange}
           priority={data.priority as number}
         />
